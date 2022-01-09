@@ -1,0 +1,20 @@
+micronaut:
+  application:
+    name: project
+
+endpoints:
+  info:
+    enabled: true
+    sensitive: false
+
+resilience4j:
+  ratelimiter:
+    enabled: true
+    configs:
+      default:
+        limitForPeriod: 2
+        limitRefreshPeriod: 5s
+        timeoutDuration: 0
+    instances:
+      backendA:
+        baseConfig: default
